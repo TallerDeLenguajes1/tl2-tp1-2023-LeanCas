@@ -1,8 +1,10 @@
 using EspacioPedido;
 
-namespace EspacioCadete {
+namespace EspacioCadete
+{
 
-    class Cadete {
+    class Cadete
+    {
         private int id;
         private string nombre;
         private string direccion;
@@ -15,10 +17,34 @@ namespace EspacioCadete {
         public int Telefono { get => telefono; set => telefono = value; }
         internal List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
-        public double jornalACobrar (){
+        public double jornalACobrar()
+        {
             return (this.listadoPedidos.Count * 500);
         }
-        
+
+        public int cantidadPedidos()
+        {
+            return this.listadoPedidos.Count;
+        }
+
+        public string verDatosCadete()
+        {
+            return $"Cadete ID:{this.id} - nombre : {this.nombre} - direccion : {this.direccion} - telefono : {this.telefono}";
+        }
+
+        public void agregarPedido(Pedido pedidoAgregar)
+        {
+            this.listadoPedidos.Add(pedidoAgregar);
+        }
+
+        public void eliminarPedido(int pedidoABorrar)
+        {
+            var x = new Pedido();
+            this.listadoPedidos.RemoveAll(x => x.Nro == pedidoABorrar);
+        }
+
+
+
     }
 
 }
