@@ -3,7 +3,7 @@ using EspacioCadete;
 namespace EspacioCadeteria
 {
 
-    class cadeteria
+    class Cadeteria
     {
         private string nombre;
         private int telefono;
@@ -12,6 +12,11 @@ namespace EspacioCadeteria
         public string Nombre { get => nombre; set => nombre = value; }
         public int Telefono { get => telefono; set => telefono = value; }
         public List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
+
+        public Cadeteria()
+        {
+            this.listadoCadetes = new List<Cadete>();
+        }
 
         public string datosCadeteria()
         {
@@ -22,6 +27,9 @@ namespace EspacioCadeteria
         {
             return this.listadoCadetes.Count;
         }
+
+
+
 
         public int cantidadPedidos()
         {

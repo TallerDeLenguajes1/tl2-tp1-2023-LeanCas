@@ -17,9 +17,19 @@ namespace EspacioCadete
         public int Telefono { get => telefono; set => telefono = value; }
         internal List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
+        public Cadete()
+        {
+            this.listadoPedidos = new List<Pedido>();
+        }
+
         public double jornalACobrar()
         {
             return (this.listadoPedidos.Count * 500);
+        }
+
+        public void asignarPedido(Pedido pedido)
+        {
+            this.listadoPedidos.Add(pedido);
         }
 
         public int cantidadPedidos()

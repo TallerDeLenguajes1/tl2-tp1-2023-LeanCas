@@ -11,10 +11,10 @@ namespace EspacioCliente
         private string datosReferenciaDireccion;
 
 
-        public string Nombre { get => Nombre; set => Nombre = value; }
-        public string Direccion { get => Direccion; set => Direccion = value; }
-        public int Telefono { get => Telefono; set => Telefono = value; }
-        public string DatosReferenciaDireccion { get => DatosReferenciaDireccion; set => DatosReferenciaDireccion = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Direccion { get => direccion; set => direccion = value; }
+        public int Telefono { get => telefono; set => telefono = value; }
+        public string DatosReferenciaDireccion { get => datosReferenciaDireccion; set => datosReferenciaDireccion = value; }
 
     }
 
