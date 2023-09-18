@@ -9,24 +9,25 @@ namespace EspacioCadete
         private string nombre;
         private string direccion;
         private int telefono;
-        private List<Pedido> listadoPedidos;
+
+        //tp2 eliminar listadopedido
 
         public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Direccion { get => direccion; set => direccion = value; }
         public int Telefono { get => telefono; set => telefono = value; }
-        internal List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
-        public Cadete()
+
+        /*public Cadete()
         {
             this.listadoPedidos = new List<Pedido>();
-        }
+        }*/
 
         public double jornalACobrar()
         {
             return (this.listadoPedidos.Count * 500);
         }
-
+        /*
         public void asignarPedido(Pedido pedido)
         {
             this.listadoPedidos.Add(pedido);
@@ -35,14 +36,14 @@ namespace EspacioCadete
         public int cantidadPedidos()
         {
             return this.listadoPedidos.Count;
-        }
+        }*/
 
         public string verDatosCadete()
         {
             return $"Cadete ID:{this.id} - nombre : {this.nombre} - direccion : {this.direccion} - telefono : {this.telefono}";
         }
 
-        public void agregarPedido(Pedido pedidoAgregar)
+        /*public void agregarPedido(Pedido pedidoAgregar)
         {
             this.listadoPedidos.Add(pedidoAgregar);
         }
@@ -51,7 +52,7 @@ namespace EspacioCadete
         {
             var x = new Pedido();
             this.listadoPedidos.RemoveAll(x => x.Nro == pedidoABorrar);
-        }
+        }*/
 
 
 

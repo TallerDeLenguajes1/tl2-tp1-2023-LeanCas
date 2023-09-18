@@ -1,4 +1,5 @@
 using EspacioCadete;
+using EspacioPedido;
 
 namespace EspacioCadeteria
 {
@@ -9,9 +10,14 @@ namespace EspacioCadeteria
         private int telefono;
         private List<Cadete> listadoCadetes;
 
+        //TP2 Agregar ListadoPedidos en la clase Cadeteria que contenga todo los pedidos que se vayan generando
+
+        private List<Pedido> listadoPedidos;
+
         public string Nombre { get => nombre; set => nombre = value; }
         public int Telefono { get => telefono; set => telefono = value; }
         public List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
+        internal List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
         public Cadeteria()
         {
@@ -28,28 +34,6 @@ namespace EspacioCadeteria
             return this.listadoCadetes.Count;
         }
 
-
-
-
-        public int cantidadPedidos()
-        {
-            int sum = 0;
-            for (int i = 0; i < this.listadoCadetes.Count; i++)
-            {
-                sum += listadoCadetes[i].cantidadPedidos();
-            }
-            return sum;
-        }
-
-        public double totalRecaudado()
-        {
-            double sum = 0;
-            for (int i = 0; i < this.listadoCadetes.Count; i++)
-            {
-                sum += listadoCadetes[i].jornalACobrar();
-            }
-            return sum;
-        }
 
         public void cargarDatosCadeteria()
         {
@@ -129,5 +113,48 @@ namespace EspacioCadeteria
             }
 
         }
+
+        //TP2 ● Agregar el método JornalACobrar en la clase Cadeteria que recibe como parámetro el id del cadete y devuelve el monto a cobrar para dicho cadete
+
+        double JornalACobrar(int IdCadete)
+        {
+            Cadete cadeteEncontrado = this.listadoCadetes.FirstOrDefault(p => p.Id == IdCadete);
+
+            int cantidadPedidos = this.listadoPedidos.Count(p => p.Cadete == cadeteEncontrado);
+
+            if (cadeteEncontrado != null)
+            {
+                return cantidadPedidos * 500;
+            }
+            else
+            {
+                return -999;
+            }
+        }
+
+        // TP2 Agregar el método AsignarCadeteAPedido en la clase Cadeteria que recibe como parámetro el id del cadete y el id del Pedido
+
+
+        void AsignarCadeteAPedido(int idCadete, int idPedido)
+        {
+            Cadete cadeteEncontrado = this.listadoCadetes.FirstOrDefault(p => p.Id == idCadete);
+            Pedido pedidoEncontrado = this.listadoPedidos.FirstOrDefault(p => p.Nro == idPedido);
+
+            if (cadeteEncontrado != null && pedidoEncontrado != null)
+            {
+                pedidoEncontrado.Cadete = cadeteEncontrado;
+
+                Console.WriteLine("Se agrego el cadete al pedido con exito");
+
+            }
+            else
+            {
+                Console.WriteLine("No fue posible agregar el pedido...");
+            }
+
+        }
+
+
+
     }
 }
