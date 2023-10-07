@@ -3,7 +3,7 @@ using EspacioPedido;
 namespace EspacioCadete
 {
 
-    class Cadete
+    public class Cadete
     {
         private int id;
         private string nombre;
@@ -19,6 +19,15 @@ namespace EspacioCadete
 
         public Cadete()
         {
+            this.listadoPedidos = new List<Pedido>();
+        }
+
+        public Cadete(int id, string nombre, string direccion, int telefono)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.direccion = direccion;
+            this.telefono = telefono;
             this.listadoPedidos = new List<Pedido>();
         }
 

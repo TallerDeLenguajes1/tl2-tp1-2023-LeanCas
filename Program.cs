@@ -1,19 +1,26 @@
 ﻿using EspacioCadete;
 using EspacioCadeteria;
 using EspacioCliente;
+using EspacioInforme;
 using EspacioPedido;
+
+string filenameCadeteria = "cadeteria.csv";
+
+string filenameCadetes = "cadete.csv";
 
 Console.WriteLine("===== Sistema de pedidos =====");
 
 int op;
 
+Informe informe = new Informe();
+
 List<Pedido> listaPedidos = new List<Pedido>();
 
 Cadeteria cadeteria = new Cadeteria();
 
-cadeteria.cargarDatosCadeteria();
+cadeteria = AccesoDatos.cargarDatosCadeteriaCSV(filenameCadeteria);
 
-cadeteria.cargarDatosCadetes();
+cadeteria.ListadoCadetes = AccesoDatos.cargarDatosCadetesCSV(filenameCadetes);
 
 int numPedido;
 
@@ -74,6 +81,8 @@ do
                 int numCadete = int.Parse(Console.ReadLine());
 
                 Pedido pedidoAsignar = listaPedidos.Find(pedido => pedido.Nro == numPedido);
+
+                listaPedidos.RemoveAll(p => p.Nro == numPedido);
 
                 Cadete cadeteAsignar = cadeteria.ListadoCadetes.Find(cadete => cadete.Id == numCadete);
 
@@ -186,10 +195,10 @@ do
 
             cadeteria.ListadoCadetes.Find(cadete => cadete.Id == numCadeteAsignarPedido).ListadoPedidos.Add(PedidoMovido);
 
-
-
             break;
     }
 
 } while (op != 5);
+
+informe.jornadaFinal(cadeteria);
 

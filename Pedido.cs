@@ -3,7 +3,7 @@ using EspacioCliente;
 namespace EspacioPedido
 {
 
-    class Pedido
+    public class Pedido
     {
         private int nro;
         private string obs;
