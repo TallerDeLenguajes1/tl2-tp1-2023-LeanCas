@@ -24,6 +24,13 @@ namespace EspacioCadeteria
             this.listadoCadetes = new List<Cadete>();
         }
 
+        public Cadeteria(string nombre, int telefono)
+        {
+            this.nombre = nombre;
+            this.telefono = telefono;
+            this.listadoCadetes = new List<Cadete>();
+        }
+
         public string datosCadeteria()
         {
             return $"Cadeteria {this.nombre}, telefono : {this.telefono}";

@@ -17,16 +17,21 @@ namespace EspacioCadete
         public string Direccion { get => direccion; set => direccion = value; }
         public int Telefono { get => telefono; set => telefono = value; }
 
+        public Cadete(int id, string nombre, string direccion, int telefono)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.direccion = direccion;
+            this.telefono = telefono;
+        }
+
 
         /*public Cadete()
         {
             this.listadoPedidos = new List<Pedido>();
         }*/
 
-        public double jornalACobrar()
-        {
-            return (this.listadoPedidos.Count * 500);
-        }
+
         /*
         public void asignarPedido(Pedido pedido)
         {
